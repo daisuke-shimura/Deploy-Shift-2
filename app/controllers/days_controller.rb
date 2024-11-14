@@ -2,8 +2,13 @@ class DaysController < ApplicationController
   def index
     date = Date.today
     @date = (date + (8-date.wday))+14
-    @today = Date.today+3
+    @today = Date.today+2
     @day = Day.where("start > ?", @today)
+    #新規日程自動作成機能
+    unless Day.exists?(start: @date)
+      flash.now[:auto_message] = "自動作成"
+      Day.create(start:  @date, finish: @date+6)
+    end
   end
 
   def index2
@@ -22,7 +27,7 @@ class DaysController < ApplicationController
     if day.save
       redirect_to request.referer
     else
-      flash[:message] = "Error：既につくられた日程です"
+      flash[:error_message] = "Error：既につくられた日程です"
       redirect_to request.referer
     end
   end

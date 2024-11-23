@@ -38,7 +38,7 @@
             <% end %>
           </div>
           <div class="col-3 col-md-3">
-            <% if current_user.id == 1 %>
+            <% if current_user.id == 1 || current_user.id == 10 %>
               <!--締め切りボタン-->
               <%= link_to day_path(day.id), method: :patch, "data-confirm" => "シフト希望の新規入力が出来なくなります。\nよろしいですか？" do %>
                 <button type="button" class="btn btn-outline-success btn-sm">作成済</button>

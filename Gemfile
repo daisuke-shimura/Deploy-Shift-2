@@ -60,6 +60,7 @@ gem 'kaminari','~> 1.2.1'
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 gem 'dotenv-rails'
 #gem 'wdm', '>= 0.1.0'
+gem 'caxlsx', '~> 3.2'
 
 gem 'dotenv-rails'
 group :production do
